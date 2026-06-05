@@ -1,0 +1,290 @@
+/* IMPORTAÇÃO DE FONTE MODERNA */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* VARIÁVEIS DE COR (DESIGN EXCLUSIVO) */
+:root {
+    --primary: #0A1F3D;      /* Azul Marinho Técnico */
+    --accent: #C1D72E;       /* Verde Lima (Energia/Agro) */
+    --bg-light: #FCFAF2;     /* Fundo creme suave */
+    --text-dark: #1F2421;    /* Texto escuro legível */
+    --white: #FFFFFF;
+}
+
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* GRID LAYOUTS */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* CABEÇALHO E MENU */
+.header {
+    background-color: var(--primary);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo i {
+    color: var(--accent);
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--accent);
+}
+
+/* BOTÕES */
+.btn-principal {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--primary);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-principal:hover {
+    transform: translateY(-2px);
+    background-color: #a8bc25;
+}
+
+.btn-alt {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+/* SEÇÃO HERO */
+.hero {
+    background: linear-gradient(rgba(10, 31, 61, 0.85), rgba(10, 31, 61, 0.85)), 
+                url('https://images.unsplash.com/photo-1542362567-b07eac790931?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* SEÇÃO SOBRE */
+.sobre {
+    padding: 80px 0;
+}
+
+.sobre h2 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.card-mini {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    border-left: 5px solid var(--accent);
+}
+
+.card-mini i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* SEÇÃO TECNOLOGIAS */
+.tecnologias {
+    background-color: #EAE8DF;
+    padding: 80px 0;
+}
+
+.titulo-central {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 50px;
+}
+
+.card-tech {
+    background-color: var(--white);
+    padding: 40px 30px;
+    border-radius: 6px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card-tech:hover {
+    transform: translateY(-5px);
+}
+
+.card-tech i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* QUIZ INTERATIVO */
+.quiz-section {
+    padding: 80px 0;
+}
+
+.quiz-box {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 50px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quiz-box h2 {
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.opcoes-container {
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-opcao {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 15px;
+    text-align: left;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.btn-opcao:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-opcao.correta {
+    background-color: #2ec4b6 !important;
+    color: white;
+    font-weight: 700;
+}
+
+.btn-opcao.errada {
+    background-color: #e71d36 !important;
+    color: white;
+}
+
+/* RODAPÉ */
+.footer {
+    background-color: #051021;
+    color: rgba(255,255,255,0.6);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* MODO ALTO CONTRASTE (ACESSIBILIDADE EXTRA) */
+body.alto-contraste {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+}
+
+body.alto-contraste .header,
+body.alto-contraste .footer,
+body.alto-contraste .quiz-box {
+    background-color: #000000 !important;
+    border: 2px solid #FFFFFF;
+}
+
+body.alto-contraste a, 
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste i {
+    color: #FFFF00 !important;
+}
+
+body.alto-contraste .card-tech,
+body.alto-contraste .card-mini {
+    background-color: #121212 !important;
+    border: 1px solid #FFFFFF;
+}
