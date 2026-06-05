@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroVolt - Energia Verde no Campo</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-bolt-lightning"></i> Agro<span>Volt</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">O Projeto</a>
+                <a href="#tecnologias">Tecnologias</a>
+                <a href="#quiz">Desafio</a>
+            </nav>
+            <button id="btn-acessibilidade" class="btn-alt" onclick="toggleAltoContraste()">
+                <i class="fa-solid fa-circle-half-stroke"></i> Alto Contraste
+            </button>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>Descubra como a energia solar e o biogás estão transformando as propriedades rurais de Guarapuava e do Paraná em modelos de preservação e eficiência.</p>
+            <a href="#sobre" class="btn-principal">Conhecer a Revolução</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="container grid-2">
+            <div class="sobre-texto">
+                <h2>O Equilíbrio Perfeito</h2>
+                <p>O grande desafio do agronegócio moderno é produzir alimentos de forma eficiente sem agredir o meio ambiente. A resposta para isso está na **independência energética sustentável**.</p>
+                <p>O projeto **AgroVolt** destaca a transição energética no campo, mostrando que os resíduos da produção (como dejetos de animais) e a luz do sol podem se transformar na força que movimenta as fazendas.</p>
+            </div>
+            <div class="sobre-cards">
+                <div class="card-mini">
+                    <i class="fa-solid fa-arrow-down-9-1"></i>
+                    <h3>-90%</h3>
+                    <p>De redução média nos custos de energia elétrica na produção.</p>
+                </div>
+                <div class="card-mini">
+                    <i class="fa-solid fa-seedling"></i>
+                    <h3>Zero Carbono</h3>
+                    <p>Geração limpa que reduz a pegada de poluição no planeta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tecnologias" class="tecnologias">
+        <div class="container">
+            <h2 class="titulo-central">Fontes de Inovação no Campo</h2>
+            <div class="grid-3">
+                <div class="card-tech">
+                    <i class="fa-solid fa-sun-plant-wilt"></i>
+                    <h3>Energia Solar</h3>
+                    <p>Painéis fotovoltaicos instalados nos telhados de grandes galpões agrícolas aproveitam o espaço para gerar eletricidade para ordenhas, irrigação e resfriamento.</p>
+                </div>
+                <div class="card-tech">
+                    <i class="fa-solid fa-recycle"></i>
+                    <h3>Biogás & Biomassa</h3>
+                    <p>Transformação de resíduos orgânicos e dejetos da pecuária em combustível limpo através de biodigestores, gerando luz e biofertilizantes de alta qualidade para o solo.</p>
+                </div>
+                <div class="card-tech">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h3>Gestão Inteligente</h3>
+                    <p>Aplicativos e sensores que monitoram o consumo em tempo real, garantindo que nenhum recurso ou faísca de energia limpa seja desperdiçada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <div class="quiz-box">
+                <h2><i class="fa-solid fa-gamepad"></i> Desafio AgroVolt</h2>
+                <p>Será que você entende tudo de sustentabilidade no campo? Teste seus conhecimentos!</p>
+                
+                <div id="quiz-container">
+                    <h3 id="pergunta">Carregando pergunta...</h3>
+                    <div id="opcoes" class="opcoes-container"></div>
+                    <button id="btn-proximo" class="btn-principal" style="display: none;" onclick="proximaPergunta()">Próxima</button>
+                </div>
+                <div id="resultado" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 AgroVolt - Projeto Escolar para o Concurso Agrinho.</p>
+            <p>Guarapuava - Paraná</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica do Quiz
+        const perguntas = [
+            {
+                q: "Qual dessas alternativas é uma fonte de energia limpa usada no campo?",
+                o: ["Óleo Diesel", "Carvão Mineral", "Energia Solar Fotovoltaica", "Gasolina"],
+                a: 2
+            },
+            {
+                q: "Como os dejetos de animais podem gerar energia nas fazendas?",
+                o: ["Sendo descartados em rios", "Através de biodigestores que produzem biogás", "Queimando o material a céu aberto", "Não é possível gerar energia com dejetos"],
+                a: 1
+            },
+            {
+                q: "Qual o principal benefício da sustentabilidade energética para o produtor?",
+                o: ["Aumento dos custos", "Dependência de combustíveis fósseis", "Redução de despesas e proteção do ecossistema", "Paralisar a produção agrícola"],
+                a: 2
+            }
+        ];
+
+        let perguntaAtual = 0;
+        let pontuacao = 0;
+
+        function carregarPergunta() {
+            if (perguntaAtual < perguntas.length) {
+                const p = perguntas[perguntaAtual];
+                document.getElementById("pergunta").innerText = p.q;
+                const opcoesDiv = document.getElementById("opcoes");
+                opcoesDiv.innerHTML = "";
+                
+                p.o.forEach((opcao, index) => {
+                    const btn = document.createElement("button");
+                    btn.className = "btn-opcao";
+                    btn.innerText = opcao;
+                    btn.onclick = () => verificarResposta(index);
+                    opcoesDiv.appendChild(btn);
+                });
+                document.getElementById("btn-proximo").style.display = "none";
+            } else {
+                mostrarResultado();
+            }
+        }
+
+        function verificarResposta(selecionada) {
+            const correta = perguntas[perguntaAtual].a;
+            const botoes = document.querySelectorAll(".btn-opcao");
+            
+            botoes.forEach((btn, idx) => {
+                btn.disabled = true;
+                if (idx === correta) btn.classList.add("correta");
+                else if (idx === selecionada) btn.classList.add("errada");
+            });
